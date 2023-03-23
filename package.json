@@ -9,7 +9,12 @@
     "serve": "rojo serve test/default.project.json",
     "prepublishOnly": "pnpm run build"
   },
-  "keywords": ["reflex", "hooks", "roact", "roact-hooked"],
+  "keywords": [
+    "reflex",
+    "hooks",
+    "roact",
+    "roact-hooked"
+  ],
   "author": "littensy",
   "repository": {
     "type": "git",
@@ -29,6 +34,9 @@
   },
   "devDependencies": {
     "@rbxts/compiler-types": "2.1.0-types.1",
+    "@rbxts/reflex": "^2.0.0",
+    "@rbxts/roact": "1.4.4-ts.0",
+    "@rbxts/roact-hooked": "^2.3.3",
     "@rbxts/types": "^1.0.667",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
@@ -40,7 +48,7 @@
     "typescript": "^5.0.2"
   },
   "peerDependencies": {
-    "@rbxts/reflex": "^1.4.1",
+    "@rbxts/reflex": "^2.0.0",
     "@rbxts/roact": "1.4.4-ts.0",
     "@rbxts/roact-hooked": "^2.3.3"
   }

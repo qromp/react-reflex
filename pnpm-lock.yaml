@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@rbxts/compiler-types': 2.1.0-types.1
-  '@rbxts/reflex': ^1.4.1
+  '@rbxts/reflex': ^2.0.0
   '@rbxts/roact': 1.4.4-ts.0
   '@rbxts/roact-hooked': ^2.3.3
   '@rbxts/types': ^1.0.667
@@ -15,13 +15,11 @@ specifiers:
   prettier: ^2.8.6
   typescript: ^5.0.2
 
-dependencies:
-  '@rbxts/reflex': 1.4.1_dwxa6w4piwmsynu5gtwuzovylm
-  '@rbxts/roact': 1.4.4-ts.0
-  '@rbxts/roact-hooked': 2.3.3_@rbxts+roact@1.4.4-ts.0
-
 devDependencies:
   '@rbxts/compiler-types': 2.1.0-types.1
+  '@rbxts/reflex': 2.0.0
+  '@rbxts/roact': 1.4.4-ts.0
+  '@rbxts/roact-hooked': 2.3.3_@rbxts+roact@1.4.4-ts.0
   '@rbxts/types': 1.0.667
   '@typescript-eslint/eslint-plugin': 5.56.0_2hcjazgfnbtq42tcc73br2vup4
   '@typescript-eslint/parser': 5.56.0_j4766f7ecgqbon3u7zlxn5zszu
@@ -116,15 +114,9 @@ packages:
     resolution: {integrity: sha512-+ztwutzuNivWsgsERiC7n5il4C5gfJUuGJUmXYRq8FwY4ye3aupRi9RocmyAHq6255sO7z+RM61AVbqx3llsLQ==}
     dev: true
 
-  /@rbxts/reflex/1.4.1_dwxa6w4piwmsynu5gtwuzovylm:
-    resolution: {integrity: sha512-uf5WwXvyqy5NOWYjSCgrxMBBDzHUrP7C66AbwA/1YWPQEpMmLbKjY+n6c4RV56lD5zyszSgLsCwhn6MmUsZFMw==}
-    peerDependencies:
-      '@rbxts/roact': ^1.4.4-ts.0
-      '@rbxts/roact-hooked': ^2.3.3
-    dependencies:
-      '@rbxts/roact': 1.4.4-ts.0
-      '@rbxts/roact-hooked': 2.3.3_@rbxts+roact@1.4.4-ts.0
-    dev: false
+  /@rbxts/reflex/2.0.0:
+    resolution: {integrity: sha512-dD6Ot7bcLtp6Iv/1hwoXhdteM98aTZ3beR8yHsydhRTuLhwcrwnko7yoRWDL6EaNOZCLj00P1WJixxAXdr/7cQ==}
+    dev: true
 
   /@rbxts/roact-hooked/2.3.3_@rbxts+roact@1.4.4-ts.0:
     resolution: {integrity: sha512-qj/Fx2Q1hOae9giRqxdDWXPi2k92aIADck7Lj1ou5KGNp/oUT8x3FD8yt6lpLq44MveWV3cY/W/f0X4NLltMEA==}
@@ -132,11 +124,11 @@ packages:
       '@rbxts/roact': '*'
     dependencies:
       '@rbxts/roact': 1.4.4-ts.0
-    dev: false
+    dev: true
 
   /@rbxts/roact/1.4.4-ts.0:
     resolution: {integrity: sha512-gn9mBoGG/Clzgv2kyOvLNVd9dh5t6z+jukC3ITv2HnfPqvf/sMbz/VMaBoiB7t5umuiIe0LjW0ctZrkrS+uTOA==}
-    dev: false
+    dev: true
 
   /@rbxts/types/1.0.667:
     resolution: {integrity: sha512-+PXHbotCjVSTOmEpRMX9EPaOAsiV5WvM+W8pQLVZhBH7smninrv57q9PYSZeD1L5wwNWUOvNIC/vAz/855ScYg==}
