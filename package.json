@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/roact-reflex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hooks for Reflex and Roact Hooked",
   "main": "out/init.lua",
   "scripts": {
