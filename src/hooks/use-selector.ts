@@ -1,5 +1,5 @@
 import { InferState, Producer } from "@rbxts/reflex";
-import { useEffect, useState } from "@rbxts/roact-hooked";
+import { useEffect, useMutable, useState } from "@rbxts/roact-hooked";
 import { useProducer } from "./use-producer";
 
 /**
@@ -49,18 +49,28 @@ export type UseSelectorHook<T extends Producer<any, any>> = <Selection>(
  */
 export function useSelector<T>(selector: (state: any) => T, equalityFn?: (a: T, b: T) => boolean): T {
 	const producer = useProducer();
+	const isMount = useMutable(true);
 
 	const [selection, setSelection] = useState(() => {
-		return selector(producer.getState());
+		return producer.getState(selector);
 	});
 
 	useEffect(() => {
+		// If the selector changes, we need to re-run the selector with the
+		// current state to get the new selection. Don't do this on mount
+		// because it would cause an extra render.
+		if (!isMount.current) {
+			setSelection(producer.getState(selector));
+		} else {
+			isMount.current = false;
+		}
+
 		let prevSelection = selection;
 
 		return producer.subscribe((newState) => {
 			const newSelection = selector(newState);
 
-			if (equalityFn ? equalityFn(newSelection, prevSelection) : newSelection !== prevSelection) {
+			if (equalityFn ? !equalityFn(newSelection, prevSelection) : newSelection !== prevSelection) {
 				prevSelection = newSelection;
 				setSelection(newSelection);
 			}
