@@ -49,6 +49,7 @@ export type UseSelectorHook<T extends Producer<any, any>> = <Selection>(
  */
 export function useSelector<T>(selector: (state: any) => T, equalityFn?: (a: T, b: T) => boolean): T {
 	const producer = useProducer();
+	const latestSelector = useMutable(selector);
 	const isMount = useMutable(true);
 
 	const [selection, setSelection] = useState(() => {
@@ -56,26 +57,27 @@ export function useSelector<T>(selector: (state: any) => T, equalityFn?: (a: T, 
 	});
 
 	useEffect(() => {
-		// If the selector changes, we need to re-run the selector with the
-		// current state to get the new selection. Don't do this on mount
-		// because it would cause an extra render.
-		if (!isMount.current) {
-			setSelection(producer.getState(selector));
-		} else {
+		if (isMount.current) {
 			isMount.current = false;
+			return;
 		}
 
+		setSelection(producer.getState(selector));
+		latestSelector.current = selector;
+	}, [selector]);
+
+	useEffect(() => {
 		let prevSelection = selection;
 
 		return producer.subscribe((newState) => {
-			const newSelection = selector(newState);
+			const newSelection = latestSelector.current(newState);
 
 			if (equalityFn ? !equalityFn(newSelection, prevSelection) : newSelection !== prevSelection) {
 				prevSelection = newSelection;
 				setSelection(newSelection);
 			}
 		});
-	}, [producer, selector]);
+	}, [producer]);
 
 	return selection;
 }
