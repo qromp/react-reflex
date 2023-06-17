@@ -1,56 +1,56 @@
 {
-  "name": "@rbxts/roact-reflex",
-  "version": "1.0.2",
-  "description": "Hooks for Reflex and Roact Hooked",
-  "main": "out/init.lua",
-  "scripts": {
-    "build": "rbxtsc",
-    "watch": "rbxtsc -w --type=game -p test -i test/include",
-    "serve": "rojo serve test/default.project.json",
-    "prepublishOnly": "pnpm run build"
-  },
-  "keywords": [
-    "reflex",
-    "hooks",
-    "roact",
-    "roact-hooked"
-  ],
-  "author": "littensy",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/littensy/roact-reflex.git"
-  },
-  "bugs": {
-    "url": "https://github.com/littensy/roact-reflex/issues"
-  },
-  "license": "MIT",
-  "types": "out/index.d.ts",
-  "files": [
-    "out",
-    "!**/*.tsbuildinfo"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@rbxts/compiler-types": "2.1.0-types.1",
-    "@rbxts/reflex": "^2.0.0",
-    "@rbxts/roact": "1.4.4-ts.0",
-    "@rbxts/roact-hooked": "^2.3.3",
-    "@rbxts/types": "^1.0.667",
-    "@typescript-eslint/eslint-plugin": "^5.56.0",
-    "@typescript-eslint/parser": "^5.56.0",
-    "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-roblox-ts": "^0.0.35",
-    "prettier": "^2.8.6",
-    "roblox-ts": "^2.1.0",
-    "typescript": "^5.0.2"
-  },
-  "peerDependencies": {
-    "@rbxts/reflex": "^2.0.0",
-    "@rbxts/roact": "1.4.4-ts.0",
-    "@rbxts/roact-hooked": "^2.3.3"
-  }
+	"name": "@rbxts/roact-reflex",
+	"version": "1.0.2",
+	"description": "Hooks for Reflex and Roact Hooked",
+	"main": "out/init.lua",
+	"scripts": {
+		"build": "rbxtsc",
+		"watch": "rbxtsc -w --type=game -p test -i test/include",
+		"serve": "rojo serve test/default.project.json",
+		"prepublishOnly": "pnpm run build"
+	},
+	"keywords": [
+		"reflex",
+		"hooks",
+		"roact",
+		"roact-hooked"
+	],
+	"author": "littensy",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/littensy/roact-reflex.git"
+	},
+	"bugs": {
+		"url": "https://github.com/littensy/roact-reflex/issues"
+	},
+	"license": "MIT",
+	"types": "out/index.d.ts",
+	"files": [
+		"out",
+		"!**/*.tsbuildinfo"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@rbxts/compiler-types": "2.1.0-types.1",
+		"@rbxts/reflex": "^3.0.1",
+		"@rbxts/roact": "1.4.4-ts.0",
+		"@rbxts/roact-hooked": "^2.3.3",
+		"@rbxts/types": "^1.0.667",
+		"@typescript-eslint/eslint-plugin": "^5.56.0",
+		"@typescript-eslint/parser": "^5.56.0",
+		"eslint": "^8.36.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-roblox-ts": "^0.0.35",
+		"prettier": "^2.8.6",
+		"roblox-ts": "^2.1.0",
+		"typescript": "^5.0.2"
+	},
+	"peerDependencies": {
+		"@rbxts/reflex": "^3.0.0",
+		"@rbxts/roact": "1.4.4-ts.0",
+		"@rbxts/roact-hooked": "^2.3.3"
+	}
 }
