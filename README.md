@@ -25,6 +25,8 @@
 
 This package provides Reflex bindings for Roact using [`@rbxts/roact-hooked`](https://npmjs.com/package/@rbxts/roact-hooked).
 
+See the full documentation for Reflex [here](https://github.com/littensy/reflex).
+
 &nbsp;
 
 ## 📦 Installation
@@ -41,21 +43,20 @@ $ pnpm add @rbxts/roact-reflex
 
 ## 📚 Usage
 
-Reflex offers support for [`@rbxts/roact-hooked`](https://npmjs.com/package/@rbxts/roact-hooked) with the `useSelector()` and `useProducer()` hooks. Using them requires including `ReflexProvider` at the root of your Roact tree.
+Reflex offers support for [`@rbxts/roact-hooked`](https://npmjs.com/package/@rbxts/roact-hooked) with [`@rbxts/roact-reflex`](https://npmjs.com/package/@rbxts/roact-reflex). Using roact-reflex hooks requires setting up a `ReflexProvider` at the root of your Roact tree.
 
 If you don't want to use generics to get the Producer type you want, Reflex exports the `UseSelectorHook` and `UseProducerHook` types to make it easier:
 
 ```tsx
-// use-app-producer.ts
-export const useAppProducer: UseProducerHook<AppProducer> = useProducer;
+export const useRootProducer: UseProducerHook<RootProducer> = useProducer;
+export const useRootSelector: UseSelectorHook<RootProducer> = useSelector;
 ```
 
 ```tsx
-// App.tsx
-export default function App() {
-	const { increment, decrement } = useAppProducer();
+export function App() {
+	const { increment, decrement } = useRootProducer();
 
-	const count = useSelector(selectCount);
+	const count = useRootSelector((state) => state.count);
 
 	return (
 		<textbutton
@@ -64,8 +65,8 @@ export default function App() {
 			Size={new UDim2(0, 100, 0, 50)}
 			Position={new UDim2(0.5, 0, 0.5, 0)}
 			Event={{
-				Activated: increment,
-				MouseButton2Click: decrement,
+				Activated: () => increment(),
+				MouseButton2Click: () => decrement(),
 			}}
 		/>
 	);
@@ -73,26 +74,25 @@ export default function App() {
 ```
 
 ```tsx
-// main.client.tsx
 Roact.mount(
-	<ReflexProvider producer={myProducer}>
+	<ReflexProvider producer={producer}>
 		<App />
 	</ReflexProvider>,
 );
 ```
 
-When using selector creators, you should avoid calling them in your render method (i.e. `useSelector(createSelectWord("E"))`), since it creates a new selector every time the component renders and risks excessive re-renders. Instead, you can use the `useSelectorCreator()` hook to memoize the selector:
+When using selector creators, you should avoid creating them in your render method (i.e. `useSelector(selectPlayersOnTeam(redTeam))`), since it creates a new selector every time the component renders and risks excessive re-renders. Instead, you can use the `useSelectorCreator()` hook to memoize the selector:
 
 ```tsx
-const createSelectWord = (word: string) => {
-	return createSelector([selectCount] as const, (count) => {
-		return word.rep(count);
+export const selectPlayersOnTeam = (team: Team) => {
+	return createSelector([selectPlayers] as const, (players) => {
+		return players.filter((player) => player.Team === team);
 	});
 };
 ```
 
 ```ts
-const word = useSelectorCreator(createSelectWord, "E");
+const players = useSelectorCreator(selectPlayersOnTeam, redTeam);
 ```
 
 &nbsp;
