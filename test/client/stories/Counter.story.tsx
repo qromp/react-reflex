@@ -17,8 +17,8 @@ function Counter() {
 			Position={new UDim2(0.5, 0, 0.5, 0)}
 			Size={new UDim2(0, 100, 0, 50)}
 			Event={{
-				Activated: increment,
-				MouseButton2Click: decrement,
+				Activated: () => increment(),
+				MouseButton2Click: () => decrement(),
 			}}
 		/>
 	);
@@ -28,7 +28,7 @@ export = (target: Frame) => {
 	withHookDetection(Roact);
 
 	const tree = Roact.mount(
-		<ReflexProvider producer={producer}>
+		<ReflexProvider producer={producer} initialState={{ counter: { count: 5 } }}>
 			<Counter />
 		</ReflexProvider>,
 		target,
