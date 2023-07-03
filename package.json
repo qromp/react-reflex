@@ -34,19 +34,19 @@
 	},
 	"devDependencies": {
 		"@rbxts/compiler-types": "2.1.0-types.1",
-		"@rbxts/reflex": "^3.0.1",
+		"@rbxts/reflex": "^3.4.0",
 		"@rbxts/roact": "1.4.4-ts.0",
-		"@rbxts/roact-hooked": "^2.3.3",
-		"@rbxts/types": "^1.0.667",
-		"@typescript-eslint/eslint-plugin": "^5.56.0",
-		"@typescript-eslint/parser": "^5.56.0",
-		"eslint": "^8.36.0",
+		"@rbxts/roact-hooked": "^2.6.0",
+		"@rbxts/types": "^1.0.703",
+		"@typescript-eslint/eslint-plugin": "^5.61.0",
+		"@typescript-eslint/parser": "^5.61.0",
+		"eslint": "^8.44.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-roblox-ts": "^0.0.35",
-		"prettier": "^2.8.6",
+		"prettier": "^2.8.8",
 		"roblox-ts": "^2.1.0",
-		"typescript": "^5.0.2"
+		"typescript": "^5.1.6"
 	},
 	"peerDependencies": {
 		"@rbxts/reflex": "^3.0.0",
