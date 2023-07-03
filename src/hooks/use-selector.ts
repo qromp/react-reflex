@@ -23,7 +23,7 @@ import { useProducer } from "./use-producer";
  * be used in the component.
  * @returns The result of the selector function.
  */
-export type UseSelectorHook<T extends Producer<any, any>> = <Selection>(
+export type UseSelectorHook<T extends Producer> = <Selection>(
 	selector: (state: InferState<T>) => Selection,
 	equalityFn?: (a: Selection, b: Selection) => boolean,
 ) => Selection;

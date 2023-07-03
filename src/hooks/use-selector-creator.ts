@@ -27,7 +27,7 @@ import { useSelector } from "./use-selector";
  * @param args Arguments to pass to the selector creator
  * @returns The result of the selector function.
  */
-export type UseSelectorCreatorHook<T extends Producer<any, any>> = <Selection, Args extends unknown[]>(
+export type UseSelectorCreatorHook<T extends Producer> = <Selection, Args extends unknown[]>(
 	selectorCreator: (...args: Args) => (state: InferState<T>) => Selection,
 	...args: Args
 ) => Selection;
