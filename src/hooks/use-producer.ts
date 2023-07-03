@@ -15,7 +15,7 @@ import ReflexContext from "../components/ReflexContext";
  *
  * @returns The producer from the ReflexProvider.
  */
-export type UseProducerHook<T extends Producer<any, any>> = () => T;
+export type UseProducerHook<T extends Producer> = () => T;
 
 /**
  * Returns the producer from the ReflexProvider. Accepts a generic type
@@ -27,8 +27,8 @@ export type UseProducerHook<T extends Producer<any, any>> = () => T;
  *
  * @returns The producer from the ReflexProvider.
  */
-export function useProducer<T extends Producer<any, any>>(): T {
-	const context = useContext(ReflexContext);
-	assert(context, "useProducer must be called from within a ReflexProvider");
-	return context.producer as T;
+export function useProducer<T extends Producer>(): T {
+	const producer = useContext(ReflexContext);
+	assert(producer, "A ReflexProvider must be rendered above this component to use Roact Reflex Hooks.");
+	return producer as T;
 }
