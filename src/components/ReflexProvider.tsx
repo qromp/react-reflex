@@ -1,6 +1,5 @@
 import { Producer } from "@rbxts/reflex";
-import Roact from "@rbxts/roact";
-import { useMemo, withHooks } from "@rbxts/roact-hooked";
+import Roact, { useMemo } from "@rbxts/react-ts";
 import ReflexContext from "./ReflexContext";
 
 interface ReflexProviderProps<S> extends Roact.PropsWithChildren {
@@ -32,4 +31,4 @@ function ReflexProvider<S>({ producer, initialState, [Roact.Children]: children 
 	return <ReflexContext.Provider value={producer}>{children}</ReflexContext.Provider>;
 }
 
-export default withHooks(ReflexProvider);
+export default ReflexProvider

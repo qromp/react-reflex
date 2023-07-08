@@ -1,5 +1,5 @@
 import { InferState, Producer } from "@rbxts/reflex";
-import { useEffect, useMutable, useState } from "@rbxts/roact-hooked";
+import { useEffect, useRef, useState } from "@rbxts/react-ts";
 import { useProducer } from "./use-producer";
 
 /**
@@ -49,8 +49,8 @@ export type UseSelectorHook<T extends Producer> = <Selection>(
  */
 export function useSelector<T>(selector: (state: any) => T, equalityFn?: (a: T, b: T) => boolean): T {
 	const producer = useProducer();
-	const latestSelector = useMutable(selector);
-	const isMount = useMutable(true);
+	const latestSelector = useRef(selector);
+	const isMount = useRef(true);
 
 	const [selection, setSelection] = useState(() => {
 		return producer.getState(selector);
