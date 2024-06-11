@@ -1,5 +1,5 @@
 import { Producer } from "@rbxts/reflex";
-import { useContext } from "@rbxts/react-ts";
+import { useContext } from "@rbxts/react";
 import ReflexContext from "../components/ReflexContext";
 
 /**

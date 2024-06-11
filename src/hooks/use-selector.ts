@@ -1,5 +1,5 @@
 import { InferState, Producer } from "@rbxts/reflex";
-import { useEffect, useRef, useState } from "@rbxts/react-ts";
+import { useEffect, useRef, useState } from "@rbxts/react";
 import { useProducer } from "./use-producer";
 
 /**

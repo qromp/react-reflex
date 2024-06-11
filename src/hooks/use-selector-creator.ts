@@ -1,5 +1,5 @@
 import { InferState, Producer } from "@rbxts/reflex";
-import { useMemo } from "@rbxts/react-ts";
+import { useMemo } from "@rbxts/react";
 import { useSelector } from "./use-selector";
 
 /**

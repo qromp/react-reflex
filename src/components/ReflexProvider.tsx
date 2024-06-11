@@ -1,8 +1,8 @@
+import React, { PropsWithChildren, useMemo } from "@rbxts/react";
 import { Producer } from "@rbxts/reflex";
-import Roact, { useMemo } from "@rbxts/react-ts";
 import ReflexContext from "./ReflexContext";
 
-interface ReflexProviderProps<S> extends Roact.PropsWithChildren {
+interface ReflexProviderProps<S> extends PropsWithChildren {
 	/**
 	 * The single Producer in your client.
 	 */
@@ -15,7 +15,7 @@ interface ReflexProviderProps<S> extends Roact.PropsWithChildren {
 	initialState?: Partial<S>;
 }
 
-function ReflexProvider<S>({ producer, initialState, [Roact.Children]: children }: ReflexProviderProps<S>) {
+function ReflexProvider<S>({ producer, initialState, children }: ReflexProviderProps<S>) {
 	useMemo(() => {
 		// Run in useMemo to set the state before rendering children
 		if (initialState === undefined) {

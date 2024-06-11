@@ -1,5 +1,5 @@
 import { Producer } from "@rbxts/reflex";
-import { createContext } from "@rbxts/react-ts";
+import { createContext } from "@rbxts/react";
 
 const ReflexContext = createContext<Producer>(undefined!);
 
